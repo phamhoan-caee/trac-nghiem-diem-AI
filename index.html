@@ -293,7 +293,7 @@
 
         showQuestion(0);
         startTimer();
-        aiSpeak("Chào mừng học viên " + document.getElementById('studentName').value + ". Chúc bạn hoàn thành tốt bài sát hạch.");
+        aiSpeak("Chào mừng học viên " + document.getElementById('studentName').value + ". Chúc bạn hoàn thành tốt bài thi.");
     }
 
     function showQuestion(idx) {
@@ -406,7 +406,7 @@
 
         // Hiển thị điểm hệ 10 chuẩn xác
         const badge = document.getElementById('res-badge');
-        badge.innerText = "ĐIỂM " + score10; 
+        badge.innerText = " " + score10; 
         badge.style.backgroundColor = status === "ĐẠT" ? "#28a745" : "#dc3545";
         document.getElementById('result-screen').style.display = 'flex';
 
