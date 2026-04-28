@@ -396,33 +396,27 @@
             if(ans && labels[q.options.indexOf(ans.selected)] === q.answer) score++;
         });
 
-       // 1. Tính toán điểm hệ 10
         const score10 = ((score / 30) * 10).toFixed(1); 
         const status = score >= 25 ? "ĐẠT" : "KHÔNG ĐẠT";
 
-        // 2. Hiển thị thông tin cơ bản
         document.getElementById('res-name').innerText = nameValue;
         document.getElementById('res-dob').innerText = dobValue;
         document.getElementById('res-id').innerText = khoaThiValue;
         document.getElementById('res-score').innerText = score;
 
-        // 3. Hiển thị điểm hệ 10 chuẩn xác (Ví dụ: 8.3 điểm)
+        // Hiển thị điểm hệ 10 chuẩn xác
         const badge = document.getElementById('res-badge');
-        // Thêm chữ "điểm" phía sau con số
-        badge.innerText = score10 + " ĐIỂM"; 
-        
-        // 4. Cập nhật màu sắc dựa trên trạng thái ĐẠT/KHÔNG ĐẠT
+        badge.innerText = " " + score10; 
         badge.style.backgroundColor = status === "ĐẠT" ? "#28a745" : "#dc3545";
         document.getElementById('result-screen').style.display = 'flex';
 
-        // 5. Gửi dữ liệu về Google Sheets (giữ nguyên logic của thầy)
         const formData = new URLSearchParams();
         formData.append('maThi', document.getElementById('maThi').value.trim().toUpperCase());
         formData.append('name', nameValue);
         formData.append('birthDate', dobValue);
         formData.append('khoaThi', khoaThiValue);
         formData.append('ngheName', document.getElementById('jobType').options[document.getElementById('jobType').selectedIndex].text);
-        formData.append('score', score + "/30 (" + score10 + " điểm)"); // Gửi kèm cả điểm hệ 10 về máy thầy
+        formData.append('score', score + "/30");
         formData.append('status', status);
         formData.append('viPham', cheatCount);
 
