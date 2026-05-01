@@ -12,6 +12,7 @@
             --success: #28a745; --danger: #dc3545;
             --light-bg: #f0f2f5;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
         body { background-color: var(--light-bg); font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
 
@@ -213,7 +214,7 @@
 
 <script>
     const BASE_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMckN5OZdg89-VQn-vnXL21uR67RWl-4rlQ18wc1-UFteqI7qwFE5-BkQ_pT3b-OvoTl9Ekaq7wf2N/pub?output=csv&gid=";
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw6h0RneB4XBMwc1yMA_-bx7ThPu0n0BUiYU7Zeo6OJUlbXSUz99-wRXXZ0DxNtte8p/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyNcGSWP9GbqfQL7YAz6RAqEh_85x3m2CCaG4Sw10o3Nzg3Pf_y1GIenVKKSkrY36w5EA/exec";
     
     let allQuestions = [], selectedQuestions = [], studentAnswers = [];
     let currentQuestionIndex = 0, timeLeft = 1200, timerInterval, isSubmitted = false, cheatCount = 0;
@@ -254,6 +255,7 @@
             }
         });
     }
+
     async function validateAndStart() {
         const maThi = document.getElementById('maThi').value.trim();
         const name = document.getElementById('studentName').value.trim();
